@@ -1,9 +1,13 @@
 package game
 
 import (
+	"fmt"
 	"game2048/player"
 	"game2048/resource"
 )
+
+var gameflag bool
+var target int = 8
 
 type level struct {
 	wid int
@@ -20,6 +24,7 @@ func (game *Game) Test() {
 }
 
 func NewGame() *Game {
+	gameflag = true
 	level := level{wid: 4, len: 4}
 	randPos := resource.GetRand()
 	randVal := resource.GetRand()
@@ -39,6 +44,13 @@ func (game *Game) Start() {
 		randVal := (resource.GetRand()%2 + 1) * 2
 		game.board.AddNum(randPos, randVal)
 		game.board.OnScreen()
+		if !game.IfContinue() {
+			fmt.Println("成功完成游戏")
+			return
+		}
 	}
 
+}
+func (game *Game) IfContinue() bool {
+	return gameflag
 }

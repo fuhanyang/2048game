@@ -32,6 +32,9 @@ func (handle *Game) up() {
 			//找到第一个能换的
 			if handle.board.BoardData[pos] == handle.board.BoardData[top] {
 				handle.board.BoardData[top] *= 2
+				if handle.board.BoardData[top] == target {
+					gameflag = false
+				}
 				handle.board.BoardData[pos] = 0
 				continue
 			}
@@ -68,6 +71,9 @@ func (handle *Game) down() {
 			//找到第一个能换的
 			if handle.board.BoardData[pos] == handle.board.BoardData[top] {
 				handle.board.BoardData[top] *= 2
+				if handle.board.BoardData[top] == target {
+					gameflag = false
+				}
 				handle.board.BoardData[pos] = 0
 				continue
 			}
@@ -104,6 +110,9 @@ func (handle *Game) left() {
 			//找到第一个能换的
 			if handle.board.BoardData[pos] == handle.board.BoardData[top] {
 				handle.board.BoardData[top] *= 2
+				if handle.board.BoardData[top] == target {
+					gameflag = false
+				}
 				handle.board.BoardData[pos] = 0
 				continue
 			}
@@ -140,6 +149,9 @@ func (handle *Game) right() {
 			//找到第一个能换的
 			if handle.board.BoardData[pos] == handle.board.BoardData[top] {
 				handle.board.BoardData[top] *= 2
+				if handle.board.BoardData[top] == target {
+					gameflag = false
+				}
 				handle.board.BoardData[pos] = 0
 				continue
 			}
